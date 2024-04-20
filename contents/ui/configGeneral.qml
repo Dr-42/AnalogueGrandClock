@@ -14,6 +14,7 @@ KCM.SimpleKCM {
     property alias cfg_showTimezoneString: showTimezoneCheckBox.checked
     property alias cfg_playHourGong: playHourGongCheckBox.checked
     property alias cfg_volumeSlider: volumeSlider.value
+    property alias cfg_dateOverlay: dateOverlayCheckBox.checked
 
     Kirigami.FormLayout {
         CheckBox {
@@ -35,6 +36,10 @@ KCM.SimpleKCM {
             to: 1.0
             value: 0.5
             Kirigami.FormData.label: i18n("Volume:")
+        }
+        CheckBox {
+            id: dateOverlayCheckBox
+            text: i18n("Show date")
         }
     }
 }

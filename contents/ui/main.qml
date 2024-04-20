@@ -29,6 +29,7 @@ PlasmoidItem {
     property bool showTimezone: Plasmoid.configuration.showTimezoneString
     property bool playHourGong: Plasmoid.configuration.playHourGong
     property real volumeInput: Plasmoid.configuration.volumeSlider
+    property bool showDateOverlay: Plasmoid.configuration.dateOverlay
     property int tzOffset
 
     Plasmoid.backgroundHints: "NoBackground";
@@ -230,6 +231,7 @@ PlasmoidItem {
             }
             Item {
                 id: dateOverlay
+                visible: showDateOverlay
                 anchors.fill: face
                 z: 150
                 Rectangle {
