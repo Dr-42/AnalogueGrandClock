@@ -1,0 +1,30 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "royspandan1@gmail.com",
+                "Name": "Spandan Roy"
+            }
+        ],
+        "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=plasmashell&component=Analog%20Clock",
+        "Category": "Date and Time",
+        "Description": "A clock with hands and sound",
+        "EnabledByDefault": true,
+        "FormFactors": [
+            "tablet",
+            "handset",
+            "desktop"
+        ],
+        "Icon": "preferences-system-time",
+        "Id": "org.dr42.analogclock",
+        "License": "BSD-2-Clause",
+        "Name": "Analog Grand Clock",
+        "Website": "https://userbase.kde.org/Plasma/Clocks"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-Provides": [
+        "org.kde.plasma.time",
+        "org.kde.plasma.date"
+    ]
+}
