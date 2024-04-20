@@ -76,8 +76,7 @@ PlasmoidItem {
     }
 
     function clickHandler() {
-        //analogclock.expanded = !analogclock.expanded;
-        soundPlayer.play();
+        analogclock.expanded = !analogclock.expanded;
     }
 
     compactRepresentation: MouseArea {
