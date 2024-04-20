@@ -1,11 +1,3 @@
-/*
-    SPDX-FileCopyrightText: 2012 Viranch Mehta <viranch.mehta@gmail.com>
-    SPDX-FileCopyrightText: 2012 Marco Martin <mart@kde.org>
-    SPDX-FileCopyrightText: 2013 David Edmundson <davidedmundson@kde.org>
-
-    SPDX-License-Identifier: LGPL-2.0-or-later
-*/
-
 import QtQuick 2.15
 import QtQuick.Layouts 1.1
 import QtMultimedia 6.7
@@ -36,6 +28,7 @@ PlasmoidItem {
     property bool showSecondsHand: Plasmoid.configuration.showSecondHand
     property bool showTimezone: Plasmoid.configuration.showTimezoneString
     property bool playHourGong: Plasmoid.configuration.playHourGong
+    property real volumeInput: Plasmoid.configuration.volumeSlider
     property int tzOffset
 
     Plasmoid.backgroundHints: "NoBackground";
@@ -48,7 +41,7 @@ PlasmoidItem {
         id: soundPlayer
         source: "file:///home/spandan/Projects/DeskClock_Cpp/assets/sound/gong.wav"
         audioOutput: AudioOutput {
-			volume: 0.3
+            volume: volumeInput
         }
     }
 
@@ -81,6 +74,11 @@ PlasmoidItem {
         }
     }
 
+    function clickHandler() {
+        //analogclock.expanded = !analogclock.expanded;
+        soundPlayer.play();
+    }
+
     compactRepresentation: MouseArea {
         id: representation
 
@@ -97,7 +95,7 @@ PlasmoidItem {
         Accessible.role: Accessible.Button
 
         onPressed: wasExpanded = analogclock.expanded
-        onClicked: analogclock.expanded = !wasExpanded
+        onClicked: clickHandler()
 
         KSvg.Svg {
             id: clockSvg
@@ -146,9 +144,9 @@ PlasmoidItem {
 
             readonly property double svgScale: face.width / face.naturalSize.width
             readonly property double horizontalShadowOffset:
-                Math.round(clockSvg.naturalHorizontalHandShadowOffset * svgScale) + Math.round(clockSvg.naturalHorizontalHandShadowOffset * svgScale) % 2
+            Math.round(clockSvg.naturalHorizontalHandShadowOffset * svgScale) + Math.round(clockSvg.naturalHorizontalHandShadowOffset * svgScale) % 2
             readonly property double verticalShadowOffset:
-                Math.round(clockSvg.naturalVerticalHandShadowOffset * svgScale) + Math.round(clockSvg.naturalVerticalHandShadowOffset * svgScale) % 2
+            Math.round(clockSvg.naturalVerticalHandShadowOffset * svgScale) + Math.round(clockSvg.naturalVerticalHandShadowOffset * svgScale) % 2
 
             KSvg.SvgItem {
                 id: face

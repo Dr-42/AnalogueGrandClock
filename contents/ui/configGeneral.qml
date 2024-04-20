@@ -13,6 +13,7 @@ KCM.SimpleKCM {
     property alias cfg_showSecondHand: showSecondHandCheckBox.checked
     property alias cfg_showTimezoneString: showTimezoneCheckBox.checked
     property alias cfg_playHourGong: playHourGongCheckBox.checked
+    property alias cfg_volumeSlider: volumeSlider.value
 
     Kirigami.FormLayout {
         CheckBox {
@@ -27,6 +28,13 @@ KCM.SimpleKCM {
         CheckBox {
             id: playHourGongCheckBox
             text: i18n("Play the gong sound every hour")
+        }
+        Slider {
+            id: volumeSlider
+            from: 0.0
+            to: 1.0
+            value: 0.5
+            Kirigami.FormData.label: i18n("Volume:")
         }
     }
 }
