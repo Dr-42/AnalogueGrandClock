@@ -18,7 +18,9 @@ PlasmoidItem {
     height: Kirigami.Units.gridUnit * 15
 
     readonly property string currentTime: Qt.locale().toString(dataSource.data["Local"]["DateTime"], Qt.locale().timeFormat(Locale.LongFormat))
-    readonly property string currentDate: Qt.locale().toString(dataSource.data["Local"]["DateTime"], Qt.locale().dateFormat(Locale.LongFormat).replace(/(^dddd.?\s)|(,?\sdddd$)/, ""))
+    // readonly property string currentDate: Qt.locale().toString(dataSource.data["Local"]["DateTime"], Qt.locale().dateFormat(Locale.LongFormat).replace(/(^dddd.?\s)|(,?\sdddd$)/, ""))
+    // 3 letter month name
+    readonly property string currentDate: Qt.locale().toString(dataSource.data["Local"]["DateTime"], "dd MMM yy")
     // Day of the week like mon, tue, wed, etc.
     readonly property string shortDay: Qt.locale().toString(dataSource.data["Local"]["DateTime"], "ddd")
 
