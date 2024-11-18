@@ -42,7 +42,7 @@ PlasmoidItem {
 
     MediaPlayer {
         id: soundPlayer
-        source: "file:///home/spandan/Projects/DeskClock_Cpp/assets/sound/gong.wav"
+        source: "../sounds/gong.wav"
         audioOutput: AudioOutput {
             volume: volumeInput
         }
