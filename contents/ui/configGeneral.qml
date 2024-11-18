@@ -15,6 +15,9 @@ KCM.SimpleKCM {
     property alias cfg_playHourGong: playHourGongCheckBox.checked
     property alias cfg_volumeSlider: volumeSlider.value
     property alias cfg_dateOverlay: dateOverlayCheckBox.checked
+    property alias cfg_datePosition: datePosition.currentText
+    property alias cfg_dateFontSize: dateFontSize.value
+    property alias cfg_dayFontSize: dayFontSize.value
 
     Kirigami.FormLayout {
         CheckBox {
@@ -41,5 +44,39 @@ KCM.SimpleKCM {
             id: dateOverlayCheckBox
             text: i18n("Show date")
         }
+        ComboBox {
+            id: datePosition
+            model: ["6 o'clock", "9 o'clock", "12 o'clock", "3 o'clock"]
+            Kirigami.FormData.label: i18n("Date position:")
+        }
+        SpinBox {
+            id: dateFontSize
+            implicitWidth: Kirigami.Units.gridUnit * 3
+            from: 4
+            to: 128
+            textFromValue: function (value) {
+                return i18n("%1pt", value)
+            }
+            valueFromText: function (text) {
+                return parseInt(text)
+            }
+
+            Kirigami.FormData.label: i18n("Date font size:")
+        }
+        SpinBox {
+            id: dayFontSize
+            implicitWidth: Kirigami.Units.gridUnit * 3
+            from: 4
+            to: 128
+            textFromValue: function (value) {
+                return i18n("%1pt", value)
+            }
+            valueFromText: function (text) {
+                return parseInt(text)
+            }
+
+            Kirigami.FormData.label: i18n("Day font size:")
+        }
+
     }
 }

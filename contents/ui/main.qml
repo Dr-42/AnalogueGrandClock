@@ -32,6 +32,9 @@ PlasmoidItem {
     property bool playHourGong: Plasmoid.configuration.playHourGong
     property real volumeInput: Plasmoid.configuration.volumeSlider
     property bool showDateOverlay: Plasmoid.configuration.dateOverlay
+    property string datePosition: Plasmoid.configuration.datePosition
+    property real dateFontSize: Plasmoid.configuration.dateFontSize
+    property real dayFontSize: Plasmoid.configuration.dayFontSize
     property int tzOffset
 
     Plasmoid.backgroundHints: "NoBackground";
@@ -79,6 +82,26 @@ PlasmoidItem {
 
     function clickHandler() {
         analogclock.expanded = !analogclock.expanded;
+    }
+
+    function getDateVerticalOffset() {
+        if (datePosition === "12 o'clock") {
+            return -0.15;
+        } else if (datePosition === "6 o'clock") {
+            return 0.25;
+        } else {
+            return 0;
+        }
+    }
+
+    function getDateHorizontalOffset() {
+        if (datePosition === "3 o'clock") {
+            return 0.20;
+        } else if (datePosition === "9 o'clock") {
+            return -0.20;
+        } else {
+            return 0;
+        }
     }
 
     compactRepresentation: MouseArea {
@@ -237,8 +260,10 @@ PlasmoidItem {
                 z: 150
                 Rectangle {
                     id: dateOverlayRect
-                    anchors.bottom: parent.bottom
                     anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.verticalCenterOffset: face.height * getDateVerticalOffset()
+                    anchors.horizontalCenterOffset: face.width * getDateHorizontalOffset()
                     width: face.width / 2
                     height: face.height / 2
                     color: "transparent"
@@ -254,7 +279,7 @@ PlasmoidItem {
                         Text {
                             id: dateText
                             text: analogclock.currentDate
-                            font.pixelSize: Math.round(dateOverlayRect.height / 7)
+                            font.pixelSize: dateFontSize
                             color: Kirigami.Theme.textColor
                             opacity: 0.8
                             Layout.alignment: Qt.AlignHCenter
@@ -265,7 +290,7 @@ PlasmoidItem {
                         Text {
                             id: dayText
                             text: analogclock.shortDay
-                            font.pixelSize: Math.round(dateOverlayRect.height / 7)
+                            font.pixelSize: dayFontSize 
                             color: Kirigami.Theme.textColor
                             opacity: 0.8
                             Layout.alignment: Qt.AlignHCenter

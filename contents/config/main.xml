@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
-      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+   http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name=""/>
 
   <group name="General">
     <entry name="showSecondHand" type="Bool">
       <default>true</default>
-    </entry>
+      </entry>
     <entry name="showTimezoneString" type="Bool">
       <default>false</default>
-    </entry>
+      </entry>
     <entry name="playHourGong" type="Bool">
       <default>true</default>
-    </entry>
+      </entry>
     <entry name="volumeSlider" type="Double">
       <default>0.5</default>
       <min>0.0</min>
       <max>1.0</max>
-    </entry>
+      </entry>
     <entry name="dateOverlay" type="Bool">
       <default>true</default>
-    </entry>
-  </group>
+      </entry>
+    <entry name="datePosition" type="String">
+      <default>6 o'clock</default>
+      </entry>
+    <entry name="dateFontSize" type="int">
+      <default>18</default>
+      </entry>
+    <entry name="dayFontSize" type="int">
+      <default>18</default>
+      </entry>
+    </group>
 
-</kcfg>
+  </kcfg>
