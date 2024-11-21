@@ -33,5 +33,11 @@
       <default>18</default>
       </entry>
     </group>
+    <entry name="dateDayOffset" type="Double">
+      <default>0.15</default>
+      <min>0.0</min>
+    <max>0.5</max>
+    <step>0.01</step>
+      </entry>
 
   </kcfg>

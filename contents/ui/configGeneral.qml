@@ -18,6 +18,7 @@ KCM.SimpleKCM {
     property alias cfg_datePosition: datePosition.currentText
     property alias cfg_dateFontSize: dateFontSize.value
     property alias cfg_dayFontSize: dayFontSize.value
+    property alias cfg_dateDayOffset: dateDayOffset.value
 
     Kirigami.FormLayout {
         CheckBox {
@@ -76,6 +77,13 @@ KCM.SimpleKCM {
             }
 
             Kirigami.FormData.label: i18n("Day font size:")
+        }
+        Slider {
+            id: dateDayOffset
+            from: 0.0
+            to: 0.5
+            value: 0.15
+            Kirigami.FormData.label: i18n("Date day offset:")
         }
 
     }

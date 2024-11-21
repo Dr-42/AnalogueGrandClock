@@ -36,6 +36,7 @@ PlasmoidItem {
     property real dateFontSize: Plasmoid.configuration.dateFontSize
     property real dayFontSize: Plasmoid.configuration.dayFontSize
     property int tzOffset
+    property real dateDayOffset: Plasmoid.configuration.dateDayOffset
 
     Plasmoid.backgroundHints: "NoBackground";
     preferredRepresentation: compactRepresentation
@@ -86,9 +87,9 @@ PlasmoidItem {
 
     function getDateVerticalOffset() {
         if (datePosition === "12 o'clock") {
-            return -0.15;
+            return -dateDayOffset;
         } else if (datePosition === "6 o'clock") {
-            return 0.25;
+            return dateDayOffset;
         } else {
             return 0;
         }
@@ -96,9 +97,9 @@ PlasmoidItem {
 
     function getDateHorizontalOffset() {
         if (datePosition === "3 o'clock") {
-            return 0.20;
+            return dateDayOffset;
         } else if (datePosition === "9 o'clock") {
-            return -0.20;
+            return -dateDayOffset;
         } else {
             return 0;
         }
