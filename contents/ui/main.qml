@@ -31,6 +31,8 @@ PlasmoidItem {
     property bool showTimezone: Plasmoid.configuration.showTimezoneString
     property bool playHourGong: Plasmoid.configuration.playHourGong
     property real volumeInput: Plasmoid.configuration.volumeSlider
+    property bool playSecondSound: Plasmoid.configuration.playSecondSound
+    property real secVolumeInput: Plasmoid.configuration.secondVolumeSlider
     property bool showDateOverlay: Plasmoid.configuration.dateOverlay
     property string datePosition: Plasmoid.configuration.datePosition
     property real dateFontSize: Plasmoid.configuration.dateFontSize
@@ -49,6 +51,14 @@ PlasmoidItem {
         source: "../sounds/gong.wav"
         audioOutput: AudioOutput {
             volume: volumeInput
+        }
+    }
+
+    MediaPlayer {
+        id: secondPlayer
+        source: "../sounds/sec.wav"
+        audioOutput: AudioOutput {
+            volume: secVolumeInput
         }
     }
 
@@ -73,7 +83,12 @@ PlasmoidItem {
             seconds = date.getSeconds();
 
             if (minutes === 0 && seconds === 0 && playHourGong) {
+                secondPlayer.stop();
+                soundPlayer.stop();
                 soundPlayer.play();
+            } else if (((seconds % 2) === 0) && playSecondSound) {
+                secondPlayer.stop();
+                secondPlayer.play();
             }
         }
         Component.onCompleted: {

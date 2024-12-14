@@ -20,6 +20,14 @@
       <min>0.0</min>
       <max>1.0</max>
       </entry>
+    <entry name="playSecondSound" type="Bool">
+      <default>true</default>
+      </entry>
+    <entry name="secondVolumeSlider" type="Double">
+      <default>0.5</default>
+      <min>0.0</min>
+      <max>1.0</max>
+      </entry>
     <entry name="dateOverlay" type="Bool">
       <default>true</default>
       </entry>

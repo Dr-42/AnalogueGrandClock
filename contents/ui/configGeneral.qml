@@ -14,6 +14,8 @@ KCM.SimpleKCM {
     property alias cfg_showTimezoneString: showTimezoneCheckBox.checked
     property alias cfg_playHourGong: playHourGongCheckBox.checked
     property alias cfg_volumeSlider: volumeSlider.value
+    property alias cfg_playSecondSound: playSecondSoundCheckBox.checked
+    property alias cfg_secondVolumeSlider: secondVolumeSlider.value
     property alias cfg_dateOverlay: dateOverlayCheckBox.checked
     property alias cfg_datePosition: datePosition.currentText
     property alias cfg_dateFontSize: dateFontSize.value
@@ -39,7 +41,18 @@ KCM.SimpleKCM {
             from: 0.0
             to: 1.0
             value: 0.5
-            Kirigami.FormData.label: i18n("Volume:")
+            Kirigami.FormData.label: i18n("Gong Volume:")
+        }
+        CheckBox {
+            id: playSecondSoundCheckBox
+            text: i18n("Play the seconds sound every second")
+        }
+        Slider {
+            id: secondVolumeSlider
+            from: 0.0
+            to: 1.0
+            value: 0.5
+            Kirigami.FormData.label: i18n("Seconds volume:")
         }
         CheckBox {
             id: dateOverlayCheckBox
